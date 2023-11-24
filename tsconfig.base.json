@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@demo/login": ["apps/login/src/index.ts"],
+      "@demo/login-cinema": ["apps/login-cinema/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
