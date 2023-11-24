@@ -1,0 +1,33 @@
+{
+  "name": "edemo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/edemo-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/edemo-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "edemo:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "edemo:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "edemo:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/edemo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["edemo"]
+}
